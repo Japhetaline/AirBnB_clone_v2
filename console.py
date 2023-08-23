@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
             if not args:
                 raise SyntaxError()
             crack= args.split(' ')
-            new_cite = eval('{}()'.format(crack[0]))
+            new_instance = eval('{}()'.format(crack[0]))
             params = crack[1:]
             for param in params:
                 r,m = param.split('=')
@@ -129,9 +129,9 @@ class HBNBCommand(cmd.Cmd):
                     continue
                 if not allocate:
                     continue
-                setattr(new_cite, r, allocate)
-            new_cite.save()
-            print(new_cite.id)
+                setattr(new_instance, r, allocate)
+            new_instance.save()
+            print(new_instance.id)
         except SyntaxError:
             print("** class name missing **")
         except NameError as e:
