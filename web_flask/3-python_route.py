@@ -2,7 +2,6 @@
 """
 Created by Damassoh Japhet
 """
-
 from flask import Flask
 app = Flask(__name__)
 
@@ -15,17 +14,21 @@ def hello():
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
+    """Adding a specific route /hbnb"""
     return 'HBNB'
 
-@app.route('/c/<string:text>', strict_slashes=False)
-def c_text(text):
-    text = text.replace('_', ' ')
-    return "C {}". format(text)
 
-@app.route('/python', strict_slashes=False)
+@app.route('/c/<string:text>', strict_slashes=False)
+def c_text(text=None):
+    """Dynamic inputed text: replace _ for space and show text"""
+    return "C {}".format(text.replace('_', ' '))
+
+
+@app.route('/python/', strict_slashes=False)
 @app.route('/python/<string:text>', strict_slashes=False)
 def python_text(text='is_cool'):
-    return "Python {}".format(text.replace('_',' '))
+    """Dynamic inputed text: replace _ for space and show text"""
+    return "Python {}".format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
