@@ -7,7 +7,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/airbnb-onepage/', methods=['GET'], strict_slashes=False)
 def hello():
     """Start a basic Flask web application"""
     return 'Hello HBNB!'
